@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="bg-dark text-white text-center py-3 mt-5" >
             <Container>
-                <p className="mb-0">2025 - Derechos Reservados Version: 1.12.0.1</p>
+                <p className="mb-0">Aquino ML 2025 - Derechos Reservados Version: 1.0.0.0</p>
             </Container>
         </footer>
     );

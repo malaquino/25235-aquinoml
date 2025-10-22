@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Card, Button } from "react-bootstrap";
 import {CartContext} from '../context/CartContext'
 
-export default function ProductCard({product, productDetail}){
+export default function ProductCard({product}){
     const {addToCart}=useContext(CartContext);
 
     return(
@@ -11,14 +11,16 @@ export default function ProductCard({product, productDetail}){
             <Card style={{ width: "22rem" }}>
                 <Card.Body>
                     <Card.Img src={product.images[0]}></Card.Img>
-                    <Card.Title style={{ color: "green" }}>{product.title}</Card.Title>
+                    <Card.Title style={{ color: "green" }}>
+                        {product.title}
+                    </Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">
                         $ {product.price}
                     </Card.Subtitle>
                     <Card.Text>
                         {product.description}
                     </Card.Text>
-                    <Button variant="primary" onClick={() => addToCart(product.id)}>
+                    <Button variant="primary" onClick={() => addToCart(product)}>
                         Agregar al carrito
                     </Button>
                 </Card.Body>
@@ -26,4 +28,3 @@ export default function ProductCard({product, productDetail}){
         </div>
     );
 }
-//onClick={() => agregarAlCarrito(product)}

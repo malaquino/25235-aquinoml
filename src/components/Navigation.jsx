@@ -12,10 +12,10 @@ export default function Navigation() {
                 <Navbar.Toggle/>
                 <Navbar.Collapse>
                     <Nav className="ms-auto">
-                        <Nav.Link href="#">Inicio</Nav.Link>
-                        <Nav.Link href="#">Galeria</Nav.Link>
-                        <Nav.Link href="#">Contacto</Nav.Link>
-                        <Nav.Link to="/carrito" className="text-white">
+                        <Nav.Link href="/">Inicio</Nav.Link>
+                        <Nav.Link href="/productos">Productos</Nav.Link>
+                        <Nav.Link href="/admin">Administracion</Nav.Link>
+                        <Nav.Link href="/carrito" className="text-white">
                             <FontAwesomeIcon icon={faShoppingCart} size="lg" />
                         </Nav.Link>
                     </Nav>

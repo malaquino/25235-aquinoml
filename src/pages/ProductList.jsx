@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from "react";
 import  { Row, Col }  from "react-bootstrap";
-import ProductCard from './ProductCard';
+import ProductCard from '../components/ProductCard';
 
 export default function ProductList(){
     const [products, setProducts] = useState(null);
@@ -30,7 +30,7 @@ export default function ProductList(){
         <Row>
             {products.map((product) => (
                 <Col md={4}>
-                    <ProductCard product={product}/>
+                    <ProductCard product={product} />
                 </Col>
             ))}
         </Row>
