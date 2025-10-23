@@ -20,6 +20,8 @@ export default function ProductCard({product}){
                     <Card.Text>
                         {product.description}
                     </Card.Text>
+                    <Card.Link href={`/productos/${product.id}`}>Ver mas informacion</Card.Link>
+                    <hr/>
                     <Button variant="primary" onClick={() => addToCart(product)}>
                         Agregar al carrito
                     </Button>

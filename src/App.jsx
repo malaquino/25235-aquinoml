@@ -20,19 +20,21 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <Header/>
-        <Navigation/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/productos" element={<ProductList />} />
-          <Route path="/productos/:id" element={<ProductDetail />} />
-          <Route path="/carrito" element={<Cart />} />
-          <Route path="/admin" element={
-            <ProtectedRoute><Administration /></ProtectedRoute>
-          } />
-        </Routes>
-        <Footer/>
+        <div className="d-flex flex-column min-vh-100">
+          <Header/>
+          <Navigation/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/productos" element={<ProductList />} />
+            <Route path="/productos/:id" element={<ProductDetail />} />
+            <Route path="/carrito" element={<Cart />} />
+            <Route path="/admin" element={
+              <ProtectedRoute><Administration /></ProtectedRoute>
+            } />
+          </Routes>
+          <Footer/>
+        </div>
       </Router>
     </CartProvider>
   );

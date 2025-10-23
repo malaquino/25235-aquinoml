@@ -9,21 +9,15 @@ export default function ProductList(){
       fetch("https://dummyjson.com/products/")
         .then((res) => res.json())
         .then((data) => {
-            //console.log(data.products);
             setProducts(data.products);
         })
         .catch((error) => {
-            console.error('Error fetching data:', error);
-            //setLoading(false);
+            console.error('Error al obtener los productos:', error);
         });
     }, []);
 
     if (products === null){
         return <div>No se encontraron productos</div>;
-    }
-    else{
-        const uniqueCategories = [...new Set(products.map(product => product.category))];
-        console.log(uniqueCategories);
     }
 
     return(
