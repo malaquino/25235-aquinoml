@@ -5,13 +5,11 @@ import {CartContext} from '../context/CartContext';
 export default function Cart(){
     const {cart} = useContext(CartContext);
 
-    const getProductInfo = (productId) => {
-        
-    }
+    //Falta obtener informacion del carrito y cargarlo
 
     return (
-        <div>
-
+        <div className="container">
+            <h2>Carrito de Compra</h2>
         </div>
     );
 }
