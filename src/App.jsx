@@ -1,11 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Navigation from './components/Navigation';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './components/Cart';
@@ -20,9 +18,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div className="d-flex flex-column min-vh-100">
           <Header/>
-          <Navigation/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -34,7 +30,6 @@ function App() {
             } />
           </Routes>
           <Footer/>
-        </div>
       </Router>
     </CartProvider>
   );
