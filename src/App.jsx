@@ -11,6 +11,7 @@ import { CartProvider } from './context/CartContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Administration from './pages/Administration';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/productos" element={<ProductList />} />
             <Route path="/productos/:id" element={<ProductDetail />} />
             <Route path="/carrito" element={<Cart />} />
