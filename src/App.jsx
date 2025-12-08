@@ -9,7 +9,7 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import Administration from './pages/Administration';
+import ProductsCrud from './components/ProductsCrud';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 
@@ -27,8 +27,8 @@ function App() {
             <Route path="/productos" element={<ProductList />} />
             <Route path="/productos/:id" element={<ProductDetail />} />
             <Route path="/carrito" element={<Cart />} />
-            <Route path="/admin" element={
-              <ProtectedRoute><Administration /></ProtectedRoute>
+            <Route path="/crud" element={
+              <ProtectedRoute><ProductsCrud /></ProtectedRoute>
             } />
           </Routes>
           <Footer/>

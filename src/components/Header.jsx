@@ -25,7 +25,7 @@ export default function Header(){
                     {/*<Nav.Link as={Link} to="/infaltables" className="me-3">Infaltables</Nav.Link>*/}
 
                     <div className="d-flex align-items-center">
-                    <Button variant="outline-light" as={Link} to="/admin" className="me-2">
+                    <Button variant="outline-light" as={Link} to="/crud" className="me-2">
                         Administración
                     </Button>
                     <Button variant="outline-light" as={Link} to="/logout" className="me-2">
