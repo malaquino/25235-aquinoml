@@ -56,7 +56,7 @@ export default function ProductsCrud() {
           height: form.height!=""?Number(form.height):0,
           depth: form.depth!=""?Number(form.depth):0,
         };
-    
+
         const method = editId ? "PUT" : "POST";
         const url = editId ? `${APIURL}/${editId}` : APIURL;
     
@@ -164,11 +164,14 @@ export default function ProductsCrud() {
                         <Form.Group className="mb-2">
                             <Form.Label>Descripción</Form.Label>
                             <Form.Control
+                                as="textarea"
+                                rows={3}
                                 value={form.description}
                                 onChange={(e) =>
                                 setForm({ ...form, description: e.target.value })
                                 }
                                 required
+                                minLength={10}
                             />
                         </Form.Group>
 
@@ -181,6 +184,7 @@ export default function ProductsCrud() {
                                 setForm({ ...form, price: Number(e.target.value) })
                                 }
                                 required
+                                min="0.01"
                             />
                         </Form.Group>
 
@@ -251,6 +255,9 @@ export default function ProductsCrud() {
 
                         <Button type="submit" className="mt-2">
                             Guardar
+                        </Button>
+                        <Button type="cancel" className="mt-2">
+                            Cancelar
                         </Button>
                     </Form>
                 </Modal.Body>

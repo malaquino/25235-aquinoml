@@ -37,7 +37,6 @@ export default function ProductDetail(){
                     </Card.Subtitle>
                     <Card.Text>
                         <p>{product.description}</p>
-                        {/*<p>Puntuación: {product.rating}</p>*/}
                         <p>Peso: {product.weight}</p>
                         <div>Dimensiones:
                             <p>altura: {product.height}</p>
