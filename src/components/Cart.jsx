@@ -4,7 +4,9 @@ import {CartContext} from '../context/CartContext';
 import {Container, Button, Table} from 'react-bootstrap';
 
 export default function Cart(){
-    const {cart} = useContext(CartContext);
+    const {cart, setCart} = useContext(CartContext);
+
+    const total = cart.reduce((acc, prod) => acc + Number(prod.price) * prod.quantity, 0);
 
     if (cart.length === 0) {
         return (
@@ -15,6 +17,12 @@ export default function Cart(){
           </Container>
         );
     }
+
+    const handleDelete = (id, title) => {
+        if (!window.confirm(`¿Seguro que quieres eliminar el producto '${title}'?`)) return;
+
+        setCart(prev => prev.filter(prod => prod.id !== id));
+    };
 
     return (
         <Container>
@@ -35,13 +43,13 @@ export default function Cart(){
                     <tr key={prod.id}>
                         <td>{prod.title}</td>
                         <td>{prod.quantity}</td>
-                        <td>{prod.price}</td>
-                        <td>{prod.price * prod.quantity}</td>
+                        <td>${Number(prod.price).toFixed(2)}</td>
+                        <td>${Number(prod.price * prod.quantity).toFixed(2)}</td>
                         <td>
                             <Button
                                 size="sm"
                                 variant="danger"
-                                /*onClick={() => handleDelete(prod.id)}*/
+                                onClick={() => handleDelete(prod.id, prod.title)}
                                 >
                                 Eliminar
                             </Button>
@@ -50,6 +58,7 @@ export default function Cart(){
                     ))}
                 </tbody>
             </Table>
+            <h5 className="text-end">Total a pagar: ${total.toFixed(2)}</h5>
         </Container>
     );
 }
