@@ -6,10 +6,10 @@ export default function ProductList(){
     const [products, setProducts] = useState(null);
 
     useEffect(() => {
-      fetch("https://dummyjson.com/products/")
+      fetch("https://6924c11e82b59600d7213ee1.mockapi.io/apitest/v1/products")
         .then((res) => res.json())
         .then((data) => {
-            setProducts(data.products);
+            setProducts(data);
         })
         .catch((error) => {
             console.error('Error al obtener los productos:', error);

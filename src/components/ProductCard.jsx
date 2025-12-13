@@ -10,7 +10,7 @@ export default function ProductCard({product}){
         <div>
             <Card style={{ width: "22rem" }}>
                 <Card.Body>
-                    <Card.Img src={product.images[0]}></Card.Img>
+                    <Card.Img src={product.image}></Card.Img>
                     <Card.Title style={{ color: "green" }}>
                         {product.title}
                     </Card.Title>

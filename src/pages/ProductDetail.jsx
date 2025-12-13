@@ -28,7 +28,7 @@ export default function ProductDetail(){
         <div>
             <Card>
                 <Card.Body>
-                    <Card.Img src={product.images[0]}></Card.Img>
+                    <Card.Img src={product.image}></Card.Img>
                     <Card.Title style={{ color: "green" }}>
                         {product.title}
                     </Card.Title>
@@ -37,12 +37,11 @@ export default function ProductDetail(){
                     </Card.Subtitle>
                     <Card.Text>
                         <p>{product.description}</p>
-                        <p>Puntuación: {product.rating}</p>
                         <p>Peso: {product.weight}</p>
                         <div>Dimensiones:
-                            <p>altura: {product.dimensions.height}</p>
-                            <p>ancho: {product.dimensions.width}</p>
-                            <p>profundidad: {product.dimensions.depth}</p>
+                            <p>altura: {product.height}</p>
+                            <p>ancho: {product.width}</p>
+                            <p>profundidad: {product.depth}</p>
                         </div>
                     </Card.Text>
                 </Card.Body>
