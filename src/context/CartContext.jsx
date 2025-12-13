@@ -12,13 +12,14 @@ export const CartProvider=({children})=>{
         if (productIndex >= 0)
         {
             newCart[productIndex].quantity += 1;
+            newCart[productIndex].price = product.price;
         }
         else
         {
-            newCart.push({ id: product.id, quantity: 1 });
+            newCart.push({ id: product.id, quantity: 1, price: product.price, title: product.title });
         }
-        console.log(JSON.stringify(newCart));
-        alert(`Producto '${product.title}' agregado al carrito`);
+        //console.log(JSON.stringify(newCart));
+        //alert(`Producto '${product.title}' agregado al carrito`);
         setCart(newCart);
     };
 
