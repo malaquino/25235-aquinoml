@@ -11,7 +11,12 @@ export default function Login() {
     e.preventDefault();
     if (user === 'admin' && pass === '1234') {
       localStorage.setItem('auth', 'true');
+      localStorage.setItem('isAdmin', 'true');
       navigate('/crud');
+    } else if (user != '' && pass != '') {
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('isAdmin', 'false');
+      navigate('/carrito');
     } else {
       alert('Usuario o contraseña incorrectos');
     }

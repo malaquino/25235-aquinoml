@@ -19,6 +19,7 @@ export default function ProductsCrud() {
       });
     const [editId, setEditId] = useState(null);
     const inputRef = useRef(null);
+    const isAdmin = localStorage.getItem('isAdmin')==='true';
 
     const getProducts = () => {
         fetch(APIURL)
@@ -97,6 +98,10 @@ export default function ProductsCrud() {
     useEffect(() => {
         getProducts();
     }, []);
+
+    if (!isAdmin) {
+        return <div><h4>No tiene permiso para acceder a esta sección</h4></div>;
+    }
 
     return(
         <Container>

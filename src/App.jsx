@@ -26,7 +26,7 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/productos" element={<ProductList />} />
             <Route path="/productos/:id" element={<ProductDetail />} />
-            <Route path="/carrito" element={<Cart />} />
+            <Route path="/carrito" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/crud" element={
               <ProtectedRoute><ProductsCrud /></ProtectedRoute>
             } />

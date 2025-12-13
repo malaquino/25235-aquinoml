@@ -6,6 +6,7 @@ export default function Logout() {
   
     const handleLogout = () => {
       localStorage.removeItem('auth');
+      localStorage.removeItem('isAdmin');
       navigate('/');
     };
 
