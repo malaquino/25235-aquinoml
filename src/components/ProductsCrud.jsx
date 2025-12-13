@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 import {Container, Button, Table, Modal, Form} from 'react-bootstrap';
 
 const APIURL = 'https://6924c11e82b59600d7213ee1.mockapi.io/apitest/v1/products';
@@ -18,6 +18,7 @@ export default function ProductsCrud() {
         depth: "",
       });
     const [editId, setEditId] = useState(null);
+    const inputRef = useRef(null);
 
     const getProducts = () => {
         fetch(APIURL)
@@ -85,7 +86,13 @@ export default function ProductsCrud() {
             getProducts();
           })
           .catch((error) => console.error("Error:", error));
-    };    
+    };
+
+    const handleFocus = () => {
+        if (inputRef.current) {
+          inputRef.current.select();
+        }
+    };
 
     useEffect(() => {
         getProducts();
@@ -183,6 +190,7 @@ export default function ProductsCrud() {
                                 onChange={(e) =>
                                 setForm({ ...form, price: Number(e.target.value) })
                                 }
+                                onFocus={(e) => e.target.select()}
                                 required
                                 min="0.01"
                             />
@@ -196,6 +204,7 @@ export default function ProductsCrud() {
                                 onChange={(e) =>
                                 setForm({ ...form, stock: Number(e.target.value) })
                                 }
+                                onFocus={(e) => e.target.select()}
                                 required
                             />
                         </Form.Group>
@@ -217,6 +226,7 @@ export default function ProductsCrud() {
                                 onChange={(e) =>
                                 setForm({ ...form, weight: Number(e.target.value) })
                                 }
+                                onFocus={(e) => e.target.select()}
                             />
                         </Form.Group>
 
@@ -228,6 +238,7 @@ export default function ProductsCrud() {
                                 onChange={(e) =>
                                 setForm({ ...form, height: Number(e.target.value) })
                                 }
+                                onFocus={(e) => e.target.select()}
                             />
                         </Form.Group>
 
@@ -239,6 +250,7 @@ export default function ProductsCrud() {
                                 onChange={(e) =>
                                 setForm({ ...form, width: Number(e.target.value) })
                                 }
+                                onFocus={(e) => e.target.select()}
                             />
                         </Form.Group>
 
@@ -250,6 +262,7 @@ export default function ProductsCrud() {
                                 onChange={(e) =>
                                 setForm({ ...form, depth: Number(e.target.value) })
                                 }
+                                onFocus={(e) => e.target.select()}
                             />
                         </Form.Group>
 
