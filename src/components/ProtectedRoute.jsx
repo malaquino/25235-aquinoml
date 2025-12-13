@@ -1,8 +1,9 @@
 import { Children } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 export default function ProtectedRoute({children})
 {
     const auth=localStorage.getItem('auth')==='true';
-    return auth ? children: <Navigate to="/login" />  
+    const location = useLocation();
+    return auth ? children: <Navigate to="/login" state={{ from: location.pathname }} replace />  
 }
