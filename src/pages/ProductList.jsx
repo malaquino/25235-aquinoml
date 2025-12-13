@@ -1,6 +1,8 @@
 import {React, useState, useEffect} from "react";
-import  { Row, Col }  from "react-bootstrap";
+import  {Container, Row, Col }  from "react-bootstrap";
 import ProductCard from '../components/ProductCard';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ProductList(){
     const [products, setProducts] = useState(null);
@@ -21,12 +23,16 @@ export default function ProductList(){
     }
 
     return(
-        <Row>
-            {products.map((product) => (
-                <Col md={4}>
-                    <ProductCard product={product} />
-                </Col>
-            ))}
-        </Row>
+        
+        <Container>
+            <ToastContainer />
+            <Row>
+                {products.map((product) => (
+                    <Col md={4}>
+                        <ProductCard product={product} />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 }

@@ -1,4 +1,5 @@
-import {useState,createContext} from 'react'
+import {useState,createContext} from 'react';
+import { toast } from "react-toastify";
 
 export const CartContext=createContext();
 
@@ -27,7 +28,7 @@ export const CartProvider=({children})=>{
             }]);
         }
         //console.log(JSON.stringify(cart));
-        //alert(`Producto '${product.title}' agregado al carrito`);
+        toast.success("Producto '" + product.title + "' agregado al carrito!", {autoClose: 2000});
     };
 
     return(
