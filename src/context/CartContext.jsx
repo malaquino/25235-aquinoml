@@ -6,21 +6,28 @@ export const CartProvider=({children})=>{
     const[cart,setCart]=useState([]);
 
     const addToCart = (product) => {
-        let newCart = cart;
-        const productIndex = newCart.findIndex(item => item.id === product.id);
+        const productIndex = cart.findIndex(item => item.id === product.id);
 
         if (productIndex >= 0)
         {
-            newCart[productIndex].quantity += 1;
-            newCart[productIndex].price = product.price;
+            const newCart = cart.map((item, index) => 
+                index === productIndex 
+                    ? { ...item, quantity: item.quantity + 1, price: product.price }
+                    : item
+            );
+            setCart(newCart);
         }
         else
         {
-            newCart.push({ id: product.id, quantity: 1, price: product.price, title: product.title });
+            setCart([...cart, { 
+                id: product.id, 
+                quantity: 1, 
+                price: product.price, 
+                title: product.title 
+            }]);
         }
-        //console.log(JSON.stringify(newCart));
+        //console.log(JSON.stringify(cart));
         //alert(`Producto '${product.title}' agregado al carrito`);
-        setCart(newCart);
     };
 
     return(
