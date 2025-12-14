@@ -60,7 +60,10 @@ export default function ProductList(){
                 <title>E-Commerce - Productos Disponibles</title>
             </Helmet>
 
-            <Form>
+            <Form onSubmit={(e) => {
+                    e.preventDefault();
+                    handleFilter();
+                }}>
                 <Row>
                     <Col>
                         <Form.Control 
