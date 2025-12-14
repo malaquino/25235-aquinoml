@@ -4,6 +4,7 @@ import ProductCard from '../components/ProductCard';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ClipLoader } from 'react-spinners';
+import { Helmet } from "react-helmet";
 
 export default function ProductList(){
     const [products, setProducts] = useState(null);
@@ -40,9 +41,14 @@ export default function ProductList(){
 
     if (filteredProducts === null){
         return (
-            <div className="spinner">
-                <ClipLoader size={50} color={"#123abc"} />
-            </div>
+            <>
+                <Helmet>
+                    <title>E-Commerce - Productos Disponibles</title>
+                </Helmet>
+                <div className="spinner">
+                    <ClipLoader size={50} color={"#123abc"} />
+                </div>
+            </>
         );
     }
 
@@ -50,6 +56,9 @@ export default function ProductList(){
         
         <Container>
             <ToastContainer />
+            <Helmet>
+                <title>E-Commerce - Productos Disponibles</title>
+            </Helmet>
 
             <Form>
                 <Row>
