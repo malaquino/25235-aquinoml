@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from 'react';
 import {CartContext} from '../context/CartContext';
 import {Container, Button, Table} from 'react-bootstrap';
+import { Helmet } from "react-helmet";
 
 export default function Cart(){
     const {cart, setCart} = useContext(CartContext);
@@ -11,6 +12,9 @@ export default function Cart(){
     if (cart.length === 0) {
         return (
           <Container>
+            <Helmet>
+                <title>E-Commerce - Carrito de Compra</title>
+            </Helmet>
             <h2>Carrito de Compra</h2>
 
             <h4>Tu carrito está vacío</h4>
@@ -26,6 +30,9 @@ export default function Cart(){
 
     return (
         <Container>
+            <Helmet>
+                <title>E-Commerce - Carrito de Compra</title>
+            </Helmet>
             <h2>Carrito de Compra</h2>
 
             <Table striped bordered hover>

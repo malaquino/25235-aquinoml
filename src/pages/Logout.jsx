@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import {useEffect} from "react";
+import { Helmet } from "react-helmet";
 
 export default function Logout() {
     const navigate = useNavigate();
@@ -15,7 +16,12 @@ export default function Logout() {
     }, []);
   
     return (
-      <>Deslogueando Usuario...</>
+      <>
+        <Helmet>
+          <title>E-Commerce - Logout</title>
+        </Helmet>
+        Deslogueando Usuario...
+      </>
     );
   }
   

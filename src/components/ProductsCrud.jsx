@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef} from "react";
 import {Container, Button, Table, Modal, Form} from 'react-bootstrap';
+import { Helmet } from "react-helmet";
 
 const APIURL = 'https://6924c11e82b59600d7213ee1.mockapi.io/apitest/v1/products';
 
@@ -100,11 +101,23 @@ export default function ProductsCrud() {
     }, []);
 
     if (!isAdmin) {
-        return <div><h4>No tiene permiso para acceder a esta sección</h4></div>;
+        return (
+            <>
+                <Helmet>
+                    <title>E-Commerce - Administracion de Productos</title>
+                </Helmet>  
+                <div>
+                    <h4>No tiene permiso para acceder a esta sección</h4>
+                </div>
+            </>
+        );
     }
 
     return(
         <Container>
+            <Helmet>
+                <title>E-Commerce - Administracion de Productos</title>
+            </Helmet>            
             <h2>Administración de Productos</h2>
             <Button className="mb-3" onClick={() => handleShow()}>
                 Agregar Producto

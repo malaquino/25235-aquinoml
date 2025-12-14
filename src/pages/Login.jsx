@@ -2,6 +2,7 @@ import {useState} from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Card, CardBody, Form, Button } from 'react-bootstrap';
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   const [user, setUser] = useState('');
@@ -41,6 +42,9 @@ export default function Login() {
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100">
       <ToastContainer />
+      <Helmet>
+          <title>E-Commerce - Login</title>
+      </Helmet>
       <Row className="w-100 justify-content-center">
         <Col md={6} lg={4}>
           <Card className="shadow-lg p-4">
