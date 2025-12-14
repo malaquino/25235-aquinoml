@@ -3,6 +3,7 @@ import  {Container, Row, Col }  from "react-bootstrap";
 import ProductCard from '../components/ProductCard';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ClipLoader } from 'react-spinners';
 
 export default function ProductList(){
     const [products, setProducts] = useState(null);
@@ -19,7 +20,11 @@ export default function ProductList(){
     }, []);
 
     if (products === null){
-        return <div>No se encontraron productos</div>;
+        return (
+            <div className="spinner">
+                <ClipLoader size={50} color={"#123abc"} />
+            </div>
+        );
     }
 
     return(

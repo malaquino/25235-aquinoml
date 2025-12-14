@@ -2,10 +2,16 @@ import {React, useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import { getProduct } from '../utils/GetData';
+import { ClipLoader } from 'react-spinners';
 
 export default function ProductDetail(){
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const [imageError, setImageError] = useState(false);
+    
+    const handleImageError = () => {
+        setImageError(true);
+    };
 
     useEffect(() => {
         async function getAsyncProduct() {
@@ -21,14 +27,25 @@ export default function ProductDetail(){
     }, []);
 
     if (product === null){
-        return <div>No se encontro el producto</div>;
+        return (
+            <div className="spinner">
+                <ClipLoader size={50} color={"#123abc"} />
+            </div>
+        );
     }
 
     return(
         <div>
             <Card>
                 <Card.Body>
-                    <Card.Img src={product.image}></Card.Img>
+                    {imageError ? (
+                        <div>[ Sin Imagen ]</div>
+                    ) : (
+                        <Card.Img src={product.image}
+                            alt={product.title}
+                            onError={handleImageError}>
+                        </Card.Img>
+                    )}
                     <Card.Title style={{ color: "green" }}>
                         {product.title}
                     </Card.Title>
