@@ -13,37 +13,34 @@ export default function Header(){
         <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
             <Container>
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-                    {/*<img
-                    src="https://via.placeholder.com/40"
-                    alt="Logo"
-                    className="d-inline-block align-top me-2"
-                    />*/}
-                    <h1>Bienvenidos a ECommerce</h1>
+                    <span className="fs-5 fw-bold">ECommerce</span>
                 </Navbar.Brand>
 
-                <Nav className="ms-auto align-items-center">
-                    <Nav.Link as={Link} to="/" className="me-3">Inicio</Nav.Link>
-                    <Nav.Link as={Link} to="/productos" className="me-3">Productos</Nav.Link>
-                    {/*<Nav.Link as={Link} to="/infaltables" className="me-3">Infaltables</Nav.Link>*/}
+                <Navbar.Toggle aria-controls="main-navbar" />
 
-                    <div className="d-flex align-items-center">
-                        <Button variant="outline-light" as={Link} to="/crud" className="me-2">
-                            Administración
-                        </Button>
-                        <Button variant="outline-light" as={Link} to="/logout" className="me-2">
-                            Logout
-                        </Button>
-                        <Link to="/carrito" className="text-white position-relative">
-                            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-                            {totalItems > 0 && (
-                                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
-                                    {totalItems}
-                                </Badge>
-                            )}
-                        </Link>
-                    </div>
-                </Nav>
+                <Navbar.Collapse id="main-navbar">
+                    <Nav className="ms-auto text-center text-lg-start align-items-lg-center gap-2">
+                        <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+                        <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
 
+                        <div className="d-flex flex-column flex-lg-row align-items-center gap-2 mt-2 mt-lg-0">
+                            <Button variant="outline-light" as={Link} to="/crud">
+                                Administración
+                            </Button>
+                            <Button variant="outline-light" as={Link} to="/logout">
+                                Logout
+                            </Button>
+                            <Link to="/carrito" className="text-white position-relative mt-2 mt-lg-0">
+                                <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                                {totalItems > 0 && (
+                                    <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                                        {totalItems}
+                                    </Badge>
+                                )}
+                            </Link>
+                        </div>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );

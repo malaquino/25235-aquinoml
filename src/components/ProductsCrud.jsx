@@ -123,7 +123,7 @@ export default function ProductsCrud() {
                 Agregar Producto
             </Button>
 
-            <Table striped bordered hover>
+            <Table reponsive striped bordered hover>
                 <thead>
                     <tr>
                         <th>Título</th>
