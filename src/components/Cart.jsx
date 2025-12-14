@@ -35,7 +35,7 @@ export default function Cart(){
             </Helmet>
             <h2>Carrito de Compra</h2>
 
-            <Table striped bordered hover>
+            <Table responsive striped bordered hover>
                 <thead>
                     <tr>
                         <th>Producto</th>

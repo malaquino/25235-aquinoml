@@ -26,7 +26,6 @@ export default function ProductList(){
     const handleFilter = () => {
         let filtered = products;
     
-        console.log('textToSearch: ' + textToSearch);
         if (textToSearch !== '') {
           filtered = filtered.filter((p) => p.title.toLowerCase().includes(textToSearch.toLowerCase()) || p.description.toLowerCase().includes(textToSearch.toLowerCase()));
         }
@@ -64,8 +63,8 @@ export default function ProductList(){
                     e.preventDefault();
                     handleFilter();
                 }}>
-                <Row>
-                    <Col>
+                <Row className="g-2">
+                    <Col xs={12} md={6}>
                         <Form.Control 
                             type="text" 
                             value={textToSearch}
@@ -74,12 +73,12 @@ export default function ProductList(){
                             >
                         </Form.Control>
                     </Col>
-                    <Col md="auto">
+                    <Col xs={12} md="auto">
                         <Button variant="primary" onClick={handleFilter}>
                         Buscar
                         </Button>
                     </Col>
-                    <Col md="auto">
+                    <Col xs={12} md="auto">
                         <Button variant="secondary" onClick={handleClear}>
                         Limpiar
                         </Button>

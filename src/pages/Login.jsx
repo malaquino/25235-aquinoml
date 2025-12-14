@@ -11,7 +11,6 @@ export default function Login() {
   const location = useLocation();
 
   const from = location.state?.from || '/';
-  console.log('from: ' + from);
 
   const handleLogin = (e) => {
     e.preventDefault();
