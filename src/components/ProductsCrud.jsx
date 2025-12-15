@@ -171,7 +171,13 @@ export default function ProductsCrud() {
                 </tbody>
             </Table>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal 
+                show={show} 
+                onHide={handleClose} 
+                size="lg" 
+                dialogClassName="modal-dialog-scrollable" 
+                aria-labelledby="example-custom-modal-styling-title"
+                fullscreen="sm-down" >
                 <Modal.Header closeButton>
                     <Modal.Title>{editId ? "Editar" : "Agregar"} Producto</Modal.Title>
                 </Modal.Header>
